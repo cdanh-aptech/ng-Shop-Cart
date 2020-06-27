@@ -24,4 +24,20 @@ export class AppComponent {
       quantity: 2,
     },
   ];
+
+  subTotal: number;
+  tax: number;
+  total: number;
+
+  constructor(){
+    // Calculating SubTotal
+    let subPrice: number = 0;
+    for (const product of this.products) {
+      subPrice += product.quantity * product.price;
+    }
+    this.subTotal = subPrice;
+    this.tax = 100.01;
+    this.total = this.subTotal + this.tax;
+  }
+
 }

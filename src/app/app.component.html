@@ -19,7 +19,11 @@
         </div>
 
         <div class="summary">
-          <app-cart-summary></app-cart-summary>
+          <app-cart-summary
+            [subTotal] = "subTotal"
+            [tax] = "tax"
+            [total] = "total"
+          ></app-cart-summary>
         </div>
 
         <div class="checkout">

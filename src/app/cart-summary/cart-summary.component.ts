@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cart-summary',
@@ -11,5 +11,9 @@ export class CartSummaryComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  @Input('subTotal') subTotal: number;
+  @Input('tax') tax: number;
+  @Input('total') total: number;
 
 }
