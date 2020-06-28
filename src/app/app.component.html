@@ -1,7 +1,7 @@
   <main>
       <header class="container">
         <app-cart-header
-
+          [itemsNumber] = "itemsNumber"
         ></app-cart-header>
       </header>
 
@@ -9,6 +9,7 @@
         <ul class="products">
           <app-product-list
             [products] = "products"
+            (onUpdateItemsNumber) = "onUpdateItemsNumber($event)"
           ></app-product-list>
         </ul>
       </section>

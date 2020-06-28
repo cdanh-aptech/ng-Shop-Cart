@@ -16,4 +16,6 @@ export class CartSummaryComponent implements OnInit {
   @Input('tax') tax: number;
   @Input('total') total: number;
 
+
+
 }

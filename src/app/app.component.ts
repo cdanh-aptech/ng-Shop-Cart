@@ -1,5 +1,6 @@
 import { Component, Output, Input } from '@angular/core';
 import { Products } from './product.model';
+import { parse } from 'querystring';
 
 @Component({
   selector: 'app-root',
@@ -26,18 +27,47 @@ export class AppComponent {
   ];
 
   subTotal: number;
-  tax: number;
+  tax: number = 100.01;
   total: number;
+
+  itemsNumber: number;
+
+  itemNumber: number;
+
 
   constructor(){
     // Calculating SubTotal
     let subPrice: number = 0;
+    let itemsNum: number = 0;
     for (const product of this.products) {
       subPrice += product.quantity * product.price;
+      itemsNum += product.quantity;
     }
     this.subTotal = subPrice;
-    this.tax = 100.01;
+    // this.tax = 100.01;
     this.total = this.subTotal + this.tax;
+    this.itemsNumber = itemsNum;
+  }
+
+  onUpdateItemsNumber(productId: string){
+    // alert('Product id: ' + productId);
+    // alert('Item Number: ' + event.target.value);
+    // console.log(event.target.value);
+    const index = this.products.findIndex(product => product.id === productId);
+    if (index != -1){
+      let itemsNum: number = 0;
+      let subPrice: number = 0;
+      let quantity: number = Number(event.target.value);
+      this.products[index].quantity = quantity;
+      for (const product of this.products) {
+        subPrice += product.quantity * product.price;
+        itemsNum += product.quantity;
+      }
+      this.subTotal = subPrice;
+      // this.tax = 100.01;
+      this.total = Number(this.subTotal + this.tax);
+      this.itemsNumber = itemsNum;
+    }
   }
 
 }

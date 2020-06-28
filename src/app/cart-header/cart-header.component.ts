@@ -13,4 +13,6 @@ export class CartHeaderComponent implements OnInit {
   }
 
   title = 'Shopping Cart';
+
+  @Input('itemsNumber') itemsNumber: number;
 }
