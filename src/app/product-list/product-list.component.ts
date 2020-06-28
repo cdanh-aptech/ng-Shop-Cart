@@ -15,11 +15,16 @@ export class ProductListComponent implements OnInit {
   @Input('products') products: Products;
 
   @Output('onUpdateItemsNumber') onUpdateItemsNumber = new EventEmitter;
-
-
   updateItemsNumber(productId: string){
 
     this.onUpdateItemsNumber.emit(productId);
+
+  }
+
+  @Output('onRemoveProduct') onRemoveProduct = new EventEmitter;
+  removeProduct(productId: string) {
+
+    this.onRemoveProduct.emit(productId);
 
   }
 }

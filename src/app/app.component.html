@@ -6,12 +6,11 @@
       </header>
 
       <section class="container">
-        <ul class="products">
           <app-product-list
             [products] = "products"
             (onUpdateItemsNumber) = "onUpdateItemsNumber($event)"
+            (onRemoveProduct) = "onRemoveProduct($event)"
           ></app-product-list>
-        </ul>
       </section>
 
       <section class="container">
